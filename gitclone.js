@@ -1,6 +1,7 @@
 import download from 'download-git-repo'
 import ora from "ora";
 import chalk from "chalk";
+import logSymbols from "./logSymbols.js";
 
 const clone = (remote, name, option=false) => {
   const spinner = ora('正在拉取项目......').start();
@@ -11,7 +12,7 @@ const clone = (remote, name, option=false) => {
         reject(err)
         return
       }
-      spinner.succeed(chalk.green('拉取成功'))
+      spinner.succeed(chalk.green(`${logSymbols.success}拉取成功`))
       resolve();
     })
   })
